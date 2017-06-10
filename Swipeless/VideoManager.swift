@@ -38,6 +38,19 @@ extension VideoManager: AVCaptureFileOutputRecordingDelegate {
         print(outputFileURL)
         SVProgressHUD.show()
         guard let fileMainURL = outputFileURL else { return }
+        do {
+            let asset = AVURLAsset(url: fileMainURL, options: nil)
+            let imgGenerator = AVAssetImageGenerator(asset: asset)
+            imgGenerator.appliesPreferredTrackTransform = true
+            let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
+            let image = UIImage(cgImage: cgImage)
+            responseImageData = NSData(contentsOf: fileMainURL)!
+            let savedPath = saveImageToDocumentDirectory(image)
+            print(savedPath)
+        } catch let error as NSError {
+            print(error)
+            return
+        }
         let videoFilePath = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("mergeVideo\(arc4random()%1000)d").appendingPathExtension("mp4").absoluteString
         if FileManager.default.fileExists(atPath: videoFilePath) {
             do {
@@ -69,6 +82,29 @@ extension VideoManager: AVCaptureFileOutputRecordingDelegate {
                 print("Complete")
                 SVProgressHUD.dismiss()
             }
+        }
+    }
+    
+    func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
+        let directoryPath =  NSHomeDirectory().appending("/Documents/")
+        if !FileManager.default.fileExists(atPath: directoryPath) {
+            do {
+                try FileManager.default.createDirectory(at: NSURL.fileURL(withPath: directoryPath), withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print(error)
+            }
+        }
+        let filename = "image.jpg"
+        let filepath = directoryPath.appending(filename)
+        let url = NSURL.fileURL(withPath: filepath)
+        do {
+            try UIImageJPEGRepresentation(chosenImage, 1.0)?.write(to: url, options: .atomic)
+            return String.init("/Documents/\(filename)")
+            
+        } catch {
+            print(error)
+            print("file cant not be save at path \(filepath), with error : \(error)");
+            return filepath
         }
     }
 }

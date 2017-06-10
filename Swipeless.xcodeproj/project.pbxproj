@@ -82,6 +82,7 @@
 			children = (
 				26039A1C1EEC3E5D009D7198 /* LoginManager.swift */,
 				26039A1F1EEC4996009D7198 /* FacebookManager.swift */,
+				6A37C24A1EEC5050002868A8 /* VideoManager.swift */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -111,7 +112,6 @@
 			children = (
 				6A37C24E1EEC634A002868A8 /* Categories */,
 				26039A1E1EEC4945009D7198 /* Swipeless.entitlements */,
-				6A37C2491EEC5037002868A8 /* Singletons */,
 				6A37C21F1EEC2D5D002868A8 /* AppDelegate.swift */,
 				26039A1B1EEC3E47009D7198 /* Singletons */,
 				6A37C2451EEC3A5E002868A8 /* Storyboards */,
@@ -172,14 +172,6 @@
 				6A37C2291EEC2D5D002868A8 /* Assets.xcassets */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		6A37C2491EEC5037002868A8 /* Singletons */ = {
-			isa = PBXGroup;
-			children = (
-				6A37C24A1EEC5050002868A8 /* VideoManager.swift */,
-			);
-			name = Singletons;
 			sourceTree = "<group>";
 		};
 		6A37C24E1EEC634A002868A8 /* Categories */ = {
