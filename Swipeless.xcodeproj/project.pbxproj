@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26039A1A1EEC3BC4009D7198 /* SWLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A191EEC3BC4009D7198 /* SWLoginViewController.swift */; };
+		26039A1D1EEC3E5D009D7198 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A1C1EEC3E5D009D7198 /* LoginManager.swift */; };
+		26039A201EEC4996009D7198 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A1F1EEC4996009D7198 /* FacebookManager.swift */; };
 		6A37C2201EEC2D5D002868A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C21F1EEC2D5D002868A8 /* AppDelegate.swift */; };
 		6A37C2251EEC2D5D002868A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A37C2231EEC2D5D002868A8 /* Main.storyboard */; };
 		6A37C2281EEC2D5D002868A8 /* Swipeless.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C2261EEC2D5D002868A8 /* Swipeless.xcdatamodeld */; };
@@ -28,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26039A191EEC3BC4009D7198 /* SWLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWLoginViewController.swift; sourceTree = "<group>"; };
+		26039A1C1EEC3E5D009D7198 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		26039A1E1EEC4945009D7198 /* Swipeless.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swipeless.entitlements; sourceTree = "<group>"; };
+		26039A1F1EEC4996009D7198 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		3266B6F96BA36D2E053150F8 /* Pods-SwipelessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipelessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipelessTests/Pods-SwipelessTests.release.xcconfig"; sourceTree = "<group>"; };
 		54EA52A9FE6F51D2F672FFED /* Pods_Swipeless.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipeless.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A37C21C1EEC2D5D002868A8 /* Swipeless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swipeless.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26039A1B1EEC3E47009D7198 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				26039A1C1EEC3E5D009D7198 /* LoginManager.swift */,
+				26039A1F1EEC4996009D7198 /* FacebookManager.swift */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
 		6A37C2131EEC2D5D002868A8 = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +105,9 @@
 		6A37C21E1EEC2D5D002868A8 /* Swipeless */ = {
 			isa = PBXGroup;
 			children = (
+				26039A1E1EEC4945009D7198 /* Swipeless.entitlements */,
 				6A37C21F1EEC2D5D002868A8 /* AppDelegate.swift */,
+				26039A1B1EEC3E47009D7198 /* Singletons */,
 				6A37C2451EEC3A5E002868A8 /* Storyboards */,
 				6A37C2441EEC3A4B002868A8 /* Controllers */,
 				6A37C2421EEC3A3B002868A8 /* Models */,
@@ -127,6 +145,7 @@
 		6A37C2441EEC3A4B002868A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				26039A191EEC3BC4009D7198 /* SWLoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +245,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4SB3F2S2K3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					6A37C2321EEC2D5D002868A8 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -372,6 +396,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26039A1A1EEC3BC4009D7198 /* SWLoginViewController.swift in Sources */,
+				26039A1D1EEC3E5D009D7198 /* LoginManager.swift in Sources */,
+				26039A201EEC4996009D7198 /* FacebookManager.swift in Sources */,
 				6A37C2281EEC2D5D002868A8 /* Swipeless.xcdatamodeld in Sources */,
 				6A37C2201EEC2D5D002868A8 /* AppDelegate.swift in Sources */,
 			);
@@ -513,6 +540,7 @@
 			baseConfigurationReference = 99039488723238468B1BCCF0 /* Pods-Swipeless.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Swipeless/Swipeless.entitlements;
 				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				INFOPLIST_FILE = Swipeless/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -527,6 +555,7 @@
 			baseConfigurationReference = A34729F1C01802AF035FC58D /* Pods-Swipeless.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Swipeless/Swipeless.entitlements;
 				DEVELOPMENT_TEAM = 4SB3F2S2K3;
 				INFOPLIST_FILE = Swipeless/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

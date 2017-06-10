@@ -16,8 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        _ = FacebookManager.shared
+        _ = FacebookManager.shared.initializeDelegate(application: application, launchOptions: launchOptions)
         return true
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let facebookURL = FacebookManager.shared.initializeURLDelegate(application: app, url: url, options: options)
+        return facebookURL
+    }
+
+    @nonobjc func application(application: UIApplication, openURL url: URL, sourceApplication: String?, annotation: Any?) -> Bool {
+        return FacebookManager.shared.initializeSourceApplicationDelegate(application: application, url: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        FacebookManager.shared.activate()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -32,10 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
