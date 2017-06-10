@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SWPresentationViewController: UIViewController {
+final class SWPresentationViewController: SWBaseViewController {
     
     // MARK: - IBOutlets
     @IBOutlet fileprivate weak var previewView: UIView!

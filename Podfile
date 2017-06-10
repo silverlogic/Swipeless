@@ -12,8 +12,10 @@ target 'Swipeless' do
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod 'SVProgressHUD'
+  pod 'FaveButton', '~> 2.0.3'
   pod 'IQKeyboardManager'
-  
+  pod 'YYWebImage'
+
   target 'SwipelessTests' do
     inherit! :search_paths
     # Pods for testing
