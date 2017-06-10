@@ -18,15 +18,19 @@ class SWLoginViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let _ = FBSDKAccessToken.current() {
-            self.performSegue(withIdentifier: "LoginToPresentationSegue", sender: self)
-        }
+//        if let _ = FBSDKAccessToken.current() {
+//            self.performSegue(withIdentifier: "LoginToPresentationSegue", sender: self)
+//        }
     }
 
 
     @IBAction func loginTapped(_ sender: UIButton) {
         FacebookManager.shared.loginToFacebookForPermissions(viewController: self, { (facebookUserInfo: FacebookUserInfo) in
-            print("*****\(facebookUserInfo)")
+            LoginManager.shared.loginUser(facebookUserInfo: facebookUserInfo, success: { (userInfo) in
+                print("*****\(userInfo)")
+            }, failure: { (error) in
+                print("**error: \(error)")
+            })
             self.performSegue(withIdentifier: "LoginToPresentationSegue", sender: self)
         }) { (error) in
             print(error)

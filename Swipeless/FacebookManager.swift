@@ -32,7 +32,7 @@ final class FacebookManager {
 fileprivate extension FacebookManager {
 
     fileprivate func fetchFacebookData(facebookToken: String,_ success: @escaping (FacebookUserInfo) -> Void, failure: @escaping (_ error: Error) -> Void) {
-        let params = ["fields": "email, picture, first_name, last_name"]
+        let params = ["fields": "email, picture, first_name, last_name, gender"]
         let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
         graphRequest!.start(completionHandler: { (connection, result, error) -> Void in
             if ((error) != nil) {
@@ -43,10 +43,11 @@ fileprivate extension FacebookManager {
                 if let email = results?["email"] as? String,
                    let firstName = results?["first_name"] as? String,
                    let lastName = results?["last_name"] as? String,
+                   let gender = results?["gender"] as? String,
                    let picture = results?["picture"] as? [String:Any]?,
                    let pictureFolder = picture?["data"] as? [String: Any]?,
                    let avatarUrl = pictureFolder?["url"] as? String? {
-                   success(FacebookUserInfo(email: email, facebookAccessToken: facebookToken, firstName: firstName, lastName: lastName, avatar: avatarUrl))
+                    success(FacebookUserInfo(email: email, facebook: facebookToken, firstName: firstName, lastName: lastName, avatar: avatarUrl!, gender: gender))
                 }
             }
         })
@@ -92,7 +93,6 @@ extension FacebookManager {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
-    
     func loginToFacebookForPermissions(viewController: UIViewController, _ success: @escaping (_ facebookData: FacebookUserInfo) -> Void, failure: @escaping (_ error: Error) -> Void) {
         let loginManager = FBSDKLoginManager()
         loginManager.logIn(withReadPermissions: ["public_profile", "email"], from:viewController) { [weak self] (result, error) -> Void in
