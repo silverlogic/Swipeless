@@ -7,6 +7,7 @@ target 'Swipeless' do
 
   # Pods for Swipeless
   pod 'Alamofire', '~> 4.4'
+  pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'

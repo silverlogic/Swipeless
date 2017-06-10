@@ -60,5 +60,10 @@
 	<string>Swipless would like to store your video on your camera roll</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 </dict>
 </plist>
