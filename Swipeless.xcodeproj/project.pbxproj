@@ -16,6 +16,8 @@
 		6A37C22A1EEC2D5D002868A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A37C2291EEC2D5D002868A8 /* Assets.xcassets */; };
 		6A37C22D1EEC2D5D002868A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A37C22B1EEC2D5D002868A8 /* LaunchScreen.storyboard */; };
 		6A37C2381EEC2D5D002868A8 /* SwipelessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C2371EEC2D5D002868A8 /* SwipelessTests.swift */; };
+		6A37C24B1EEC5050002868A8 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C24A1EEC5050002868A8 /* VideoManager.swift */; };
+		6A37C24D1EEC613A002868A8 /* SWPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C24C1EEC613A002868A8 /* SWPresentationViewController.swift */; };
 		8EC9CEB5029207D64998B84C /* Pods_Swipeless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54EA52A9FE6F51D2F672FFED /* Pods_Swipeless.framework */; };
 		C3AFB0C8CDDEAE8B19187E2A /* Pods_SwipelessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AD7BFF3E39E29594DD9D1D /* Pods_SwipelessTests.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +49,8 @@
 		6A37C2331EEC2D5D002868A8 /* SwipelessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipelessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A37C2371EEC2D5D002868A8 /* SwipelessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipelessTests.swift; sourceTree = "<group>"; };
 		6A37C2391EEC2D5D002868A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A37C24A1EEC5050002868A8 /* VideoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		6A37C24C1EEC613A002868A8 /* SWPresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWPresentationViewController.swift; sourceTree = "<group>"; };
 		99039488723238468B1BCCF0 /* Pods-Swipeless.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeless.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeless/Pods-Swipeless.debug.xcconfig"; sourceTree = "<group>"; };
 		A34729F1C01802AF035FC58D /* Pods-Swipeless.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeless.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeless/Pods-Swipeless.release.xcconfig"; sourceTree = "<group>"; };
 		E3AD7BFF3E39E29594DD9D1D /* Pods_SwipelessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipelessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +109,9 @@
 		6A37C21E1EEC2D5D002868A8 /* Swipeless */ = {
 			isa = PBXGroup;
 			children = (
+				6A37C24E1EEC634A002868A8 /* Categories */,
 				26039A1E1EEC4945009D7198 /* Swipeless.entitlements */,
+				6A37C2491EEC5037002868A8 /* Singletons */,
 				6A37C21F1EEC2D5D002868A8 /* AppDelegate.swift */,
 				26039A1B1EEC3E47009D7198 /* Singletons */,
 				6A37C2451EEC3A5E002868A8 /* Storyboards */,
@@ -146,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				26039A191EEC3BC4009D7198 /* SWLoginViewController.swift */,
+				6A37C24C1EEC613A002868A8 /* SWPresentationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -165,6 +172,21 @@
 				6A37C2291EEC2D5D002868A8 /* Assets.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		6A37C2491EEC5037002868A8 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				6A37C24A1EEC5050002868A8 /* VideoManager.swift */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
+		6A37C24E1EEC634A002868A8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		A7581221CEED95FCA46AEEBE /* Frameworks */ = {
@@ -397,10 +419,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				26039A1A1EEC3BC4009D7198 /* SWLoginViewController.swift in Sources */,
+				6A37C24D1EEC613A002868A8 /* SWPresentationViewController.swift in Sources */,
 				26039A1D1EEC3E5D009D7198 /* LoginManager.swift in Sources */,
 				26039A201EEC4996009D7198 /* FacebookManager.swift in Sources */,
 				6A37C2281EEC2D5D002868A8 /* Swipeless.xcdatamodeld in Sources */,
 				6A37C2201EEC2D5D002868A8 /* AppDelegate.swift in Sources */,
+				6A37C24B1EEC5050002868A8 /* VideoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
