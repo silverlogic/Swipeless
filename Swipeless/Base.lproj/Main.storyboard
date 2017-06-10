@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XdK-8M-N8n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XdK-8M-N8n">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="width" constant="240" id="aq5-Re-wTW"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Swipeless" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNh-cj-hq6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Swipeless" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNh-cj-hq6">
                                 <rect key="frame" x="24" y="354" width="327" height="29.5"/>
                                 <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -54,17 +54,60 @@
                             <constraint firstItem="zmN-ek-QhI" firstAttribute="top" secondItem="hNh-cj-hq6" secondAttribute="bottom" constant="123.5" id="t4t-OC-CWH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pov-bw-9jg">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="9PS-PH-xlU"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="pov-bw-9jg"/>
                     <connections>
                         <outlet property="facebookLoginButton" destination="zmN-ek-QhI" id="tw8-Ij-pE9"/>
                         <outlet property="swipeIessIconImage" destination="zsN-Aa-vDR" id="BQ7-IV-hJH"/>
+                        <segue destination="PYD-96-dFc" kind="show" identifier="LoginToPresentationSegue" id="UZc-OZ-nLG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="954" y="13"/>
+        </scene>
+        <!--Presentation View Controller-->
+        <scene sceneID="Vr2-F3-Owk">
+            <objects>
+                <viewController id="PYD-96-dFc" customClass="SWPresentationViewController" customModule="Swipeless" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e7V-3r-LbJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="B7n-4d-WXu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VRX-f0-iGw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mk5-A3-98g">
+                                <rect key="frame" x="306" y="577" width="69" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Orn-5f-V6o"/>
+                                    <constraint firstAttribute="width" constant="69" id="iWG-re-Bm1"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSd-RE-xHb">
+                                <rect key="frame" x="16" y="317.5" width="343" height="32.5"/>
+                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B7n-4d-WXu" firstAttribute="top" secondItem="Mk5-A3-98g" secondAttribute="bottom" id="3lG-Ho-NCK"/>
+                            <constraint firstItem="JSd-RE-xHb" firstAttribute="leading" secondItem="VRX-f0-iGw" secondAttribute="leadingMargin" id="7SC-kA-LqQ"/>
+                            <constraint firstItem="JSd-RE-xHb" firstAttribute="trailing" secondItem="VRX-f0-iGw" secondAttribute="trailingMargin" id="HlK-eB-69J"/>
+                            <constraint firstAttribute="trailing" secondItem="Mk5-A3-98g" secondAttribute="trailing" id="QcC-1N-zWG"/>
+                            <constraint firstItem="JSd-RE-xHb" firstAttribute="centerY" secondItem="VRX-f0-iGw" secondAttribute="centerY" id="zc5-LU-J0i"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="Mk5-A3-98g" id="eAw-d4-9cQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Wp-DV-dAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1702" y="12"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lD1-AW-V6i">
@@ -74,6 +117,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LKg-v5-UOW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

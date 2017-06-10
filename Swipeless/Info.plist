@@ -54,5 +54,11 @@
         <string>fbauth2</string>
         <string>fbshareextension</string>
     </array>
+	<key>NSCameraUsageDescription</key>
+	<string>Swipeless would like to use the camera to capture your emotions!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Swipless would like to store your video on your camera roll</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 </dict>
 </plist>
