@@ -1,0 +1,37 @@
+PODS:
+  - Alamofire (4.4.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - FBSDKCoreKit (4.23.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.23.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.23.0):
+    - FBSDKCoreKit
+  - IQKeyboardManager (4.0.9)
+  - SVProgressHUD (2.1.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - IQKeyboardManager
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FBSDKCoreKit: d7829f5a69901cd7296105328e4c3c3fc7da6518
+  FBSDKLoginKit: 6b92bd65f319d669d2b0730e49db495ef1660566
+  FBSDKShareKit: 65751c3b9937ab9d594e6c37611ecc115ceeb448
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+
+PODFILE CHECKSUM: d2abb9c8f514a53154d359403be47cc14c167eec
+
+COCOAPODS: 1.2.1
