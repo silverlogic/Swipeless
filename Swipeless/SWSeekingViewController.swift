@@ -82,18 +82,13 @@ final class SWSeekingViewController: SWBaseViewController {
 
     @IBAction func nextButtonTapped(_ sender: Any) {
         //if let user = UserManager.shared.currentUser {
-            UserManager.shared.postSeeking(email: "michaelsevy@gmail.com", seeking: seeking, success: { [weak self] (success) in
-                guard let strongSelf = self else { return }
-                strongSelf.performSegue(withIdentifier: "SegueToBaseLineDescription", sender: self)
-                }, failure: { (error) in
-                    print(error)
-            })
-//        } else {
-//            print("no user logged in")
-//        }
+        UserManager.shared.postSeeking(email: "michaelsevy@gmail.com", seeking: seeking, success: { [weak self] (success) in
+            guard let strongSelf = self else { return }
+            strongSelf.performSegue(withIdentifier: "SegueToBaseLineDescription", sender: self)
+            }, failure: { (error) in
+                print(error)
+        })
     }
-   
-
 }
 
 

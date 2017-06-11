@@ -53,6 +53,8 @@ extension SWBaselineViewController {
                     // Segue
                 }
                 self.updateImage()
+            } else {
+                self.performSegue(withIdentifier: "SegueToReaction", sender: self)
             }
         }
     }

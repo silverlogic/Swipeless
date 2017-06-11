@@ -12,6 +12,10 @@
 		26039A201EEC4996009D7198 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A1F1EEC4996009D7198 /* FacebookManager.swift */; };
 		26039A261EEC8DFB009D7198 /* KairosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A251EEC8DFB009D7198 /* KairosManager.swift */; };
 		26039A281EEC8FAE009D7198 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A271EEC8FAE009D7198 /* Constants.swift */; };
+		26039A2A1EED2F0F009D7198 /* SWReactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A291EED2F0F009D7198 /* SWReactionViewController.swift */; };
+		26039A2C1EED476F009D7198 /* SWMatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A2B1EED476F009D7198 /* SWMatchesViewController.swift */; };
+		26039A2E1EED4941009D7198 /* MatchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A2D1EED4941009D7198 /* MatchCollectionViewCell.swift */; };
+		26039A301EED578F009D7198 /* NewMatchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039A2F1EED578F009D7198 /* NewMatchCollectionViewCell.swift */; };
 		6A14220F1EED2CA9000F33F1 /* SWBaselineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14220E1EED2CA9000F33F1 /* SWBaselineViewController.swift */; };
 		6A37C2201EEC2D5D002868A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C21F1EEC2D5D002868A8 /* AppDelegate.swift */; };
 		6A37C2251EEC2D5D002868A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A37C2231EEC2D5D002868A8 /* Main.storyboard */; };
@@ -49,6 +53,10 @@
 		26039A1F1EEC4996009D7198 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		26039A251EEC8DFB009D7198 /* KairosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KairosManager.swift; sourceTree = "<group>"; };
 		26039A271EEC8FAE009D7198 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		26039A291EED2F0F009D7198 /* SWReactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWReactionViewController.swift; sourceTree = "<group>"; };
+		26039A2B1EED476F009D7198 /* SWMatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWMatchesViewController.swift; sourceTree = "<group>"; };
+		26039A2D1EED4941009D7198 /* MatchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchCollectionViewCell.swift; sourceTree = "<group>"; };
+		26039A2F1EED578F009D7198 /* NewMatchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMatchCollectionViewCell.swift; sourceTree = "<group>"; };
 		3266B6F96BA36D2E053150F8 /* Pods-SwipelessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipelessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipelessTests/Pods-SwipelessTests.release.xcconfig"; sourceTree = "<group>"; };
 		54EA52A9FE6F51D2F672FFED /* Pods_Swipeless.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipeless.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A14220E1EED2CA9000F33F1 /* SWBaselineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWBaselineViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +177,8 @@
 		6A37C2431EEC3A46002868A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				26039A2D1EED4941009D7198 /* MatchCollectionViewCell.swift */,
+				26039A2F1EED578F009D7198 /* NewMatchCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -181,6 +191,8 @@
 				6A37C24F1EEC8F1D002868A8 /* SWBaseViewController.swift */,
 				6A37C2531EEC9ECF002868A8 /* SWSeekingViewController.swift */,
 				6A14220E1EED2CA9000F33F1 /* SWBaselineViewController.swift */,
+				26039A291EED2F0F009D7198 /* SWReactionViewController.swift */,
+				26039A2B1EED476F009D7198 /* SWMatchesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -401,7 +413,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AC6FC6608E5C068F82378483 /* [CP] Check Pods Manifest.lock */ = {
@@ -416,7 +428,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F0654FFECA6EFC7AEC3A2A6B /* [CP] Embed Pods Frameworks */ = {
@@ -449,13 +461,17 @@
 				6A14220F1EED2CA9000F33F1 /* SWBaselineViewController.swift in Sources */,
 				26039A1D1EEC3E5D009D7198 /* LoginManager.swift in Sources */,
 				26039A201EEC4996009D7198 /* FacebookManager.swift in Sources */,
+				26039A2A1EED2F0F009D7198 /* SWReactionViewController.swift in Sources */,
 				6A37C2581EECAA93002868A8 /* UserManager.swift in Sources */,
 				6A37C2281EEC2D5D002868A8 /* Swipeless.xcdatamodeld in Sources */,
 				6A37C25A1EECDD73002868A8 /* Upload.swift in Sources */,
+				26039A2C1EED476F009D7198 /* SWMatchesViewController.swift in Sources */,
 				6A37C2201EEC2D5D002868A8 /* AppDelegate.swift in Sources */,
+				26039A2E1EED4941009D7198 /* MatchCollectionViewCell.swift in Sources */,
 				6A37C2521EEC93DA002868A8 /* UIColor+Extensions.swift in Sources */,
 				6A37C24B1EEC5050002868A8 /* VideoManager.swift in Sources */,
 				6A37C2561EECA9EF002868A8 /* User.swift in Sources */,
+				26039A301EED578F009D7198 /* NewMatchCollectionViewCell.swift in Sources */,
 				26039A281EEC8FAE009D7198 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
