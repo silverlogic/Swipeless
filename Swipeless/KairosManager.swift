@@ -25,6 +25,7 @@ final class KairosManager {
     let mediaURL = "https://api.kairos.com/v2/media"
     let analyticsURL = "https://api.kairos.com/v2/analytics"
     var parsedItems = [[String:Any]]()
+    var counter = 0
     
 
     // MARK: - Initializers
@@ -51,6 +52,7 @@ extension KairosManager {
                 print("Uploading...")
                 upload.responseObject { (response: DataResponse<Upload>) in
                     guard let uploadID = response.result.value?.uploadID else { return }
+                    self.counter = 0
                     self.checkUploadStatus(uploadID: uploadID)
                 }
             case .failure(let encodingError):
@@ -73,10 +75,16 @@ extension KairosManager {
                 if message == "Complete" {
                     strongSelf.getUserEmotions(uploadID: idString)
                 } else {
-                    print("Status: \(message)...Rechecking Upload Status")
-                    let when = DispatchTime.now() + 4
+                    print("[\(strongSelf.counter)]Status: \(message) ... Rechecking Upload Status")
+                    let when = DispatchTime.now() + 5
                     DispatchQueue.main.asyncAfter(deadline: when) {
-                        strongSelf.checkUploadStatus(uploadID: uploadID)
+                        if strongSelf.counter < 5 {
+                            strongSelf.checkUploadStatus(uploadID: uploadID)
+                        } else {
+                            let sentiments = strongSelf.generateFakeData()
+                            print("Fake Data after time out: \(sentiments)")
+                        }
+                        strongSelf.counter = strongSelf.counter + 1
                     }
                 }
             }
@@ -84,43 +92,45 @@ extension KairosManager {
     }
     
     func getUserEmotions(uploadID: String) {
-        print("Getting Emotional")
-
-
-
-
+        print("Let's get emotional")
         let url = URL(string: "https://api.kairos.com/v2/analytics/\(uploadID)")!
         var request = URLRequest(url: url)
         request.addValue("5766848c", forHTTPHeaderField: "app_id")
         request.addValue("7b825a5c093b4f9dcad42e8d31476497", forHTTPHeaderField: "app_key")
-
         Alamofire.request(request).responseObject { (response: DataResponse<User>) in
-            if let user = response.result.value {
+            print("OK, Getting Emotional")
+            if let impressions = response.result.value {
+                if (impressions.emotions?.isEmpty)! {
+                    let sentiments = self.generateFakeData()
+                    print("Fake Data because empty emotions: \(sentiments)")
+                    return
+                }
+                for values in impressions.emotions! {
+                    for (key, value) in values as! [String: Any] {
+                        if key == "average_emotion" {
+                            print("Real Data: \(value as! [String: Int])")
+                        }
+                    }
+                }
+            } else {
+                let sentiments = self.generateFakeData()
+                print("Fake Data after failed response: \(sentiments)")
             }
         }
-        // Kairos example from http://docs.kairos.apiary.io/#reference/emotion-analysis/v2analyticsid/get
-        //let url = URL(string: "https://api.kairos.com/v2/analytics/{id}")!
-        //var request = URLRequest(url: url)
-        //request.addValue("4985f625", forHTTPHeaderField: "app_id")
-        //request.addValue("aa9e5d2ec3b00306b2d9588c3a25d68e", forHTTPHeaderField: "app_key")
-
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let response = response, let data = data {
-//
-//                print(String(data: data, encoding: .utf8) ?? "dafsdf")
-//
-//                do {
-//                    let json: [String : Any] = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]?!!
-//                    print("**\(json["id"]!)")
-//                    print("***\(json["impressions"]!)")
-//                    print("JSON***\(String(describing: json))")
-//                } catch let error {
-//                    print(error)
-//                }
-//            }
-//        }
-//
-//        task.resume()
     }
-
+    
+    private func randomSentimentValue() -> Int {
+        return Int(arc4random_uniform(100))
+    }
+    
+    private func generateFakeData() -> [String: Int] {
+        let emotions = ["anger", "disgust", "fear", "sadness", "surprise", "joy"]
+        var sentiments = ["anger": 0, "disgust": 0, "fear": 0, "sadness": 0, "surprise": 0, "joy": 0]
+        for _ in 0...1 {
+            let value = self.randomSentimentValue()
+            let index = Int(arc4random_uniform(5))
+            sentiments[emotions[index]] = value
+        }
+        return sentiments
+    }
 }
