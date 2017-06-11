@@ -96,9 +96,6 @@ extension KairosManager {
 
         Alamofire.request(request).responseObject { (response: DataResponse<User>) in
             if let user = response.result.value {
-              
-
-
             }
         }
         // Kairos example from http://docs.kairos.apiary.io/#reference/emotion-analysis/v2analyticsid/get
