@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-class SWLoginViewController: UIViewController {
+class SWLoginViewController: SWBaseViewController {
 
     @IBOutlet weak var swipeIessIconImage: UIImageView!
     @IBOutlet weak var facebookLoginButton: UIButton!
@@ -18,9 +18,7 @@ class SWLoginViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let _ = FBSDKAccessToken.current() {
-//            self.performSegue(withIdentifier: "LoginToPresentationSegue", sender: self)
-//        }
+        self.performSegue(withIdentifier: "LoginToSeekingSegue", sender: self)
     }
 
 
@@ -31,7 +29,7 @@ class SWLoginViewController: UIViewController {
             }, failure: { (error) in
                 print("**error: \(error)")
             })
-            self.performSegue(withIdentifier: "LoginToPresentationSegue", sender: self)
+            self.performSegue(withIdentifier: "LoginToSeekingSegue", sender: self)
         }) { (error) in
             print(error)
             //handle error

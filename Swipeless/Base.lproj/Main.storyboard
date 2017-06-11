@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Azo Sans Regular.otf">
+            <string>AzoSans-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -22,48 +27,117 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zsN-Aa-vDR">
-                                <rect key="frame" x="67" y="176" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="1zi-vB-XGV"/>
-                                    <constraint firstAttribute="width" constant="240" id="aq5-Re-wTW"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Swipeless" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNh-cj-hq6">
-                                <rect key="frame" x="24" y="354" width="327" height="29.5"/>
-                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmN-ek-QhI">
-                                <rect key="frame" x="37" y="507" width="300" height="46"/>
+                                <rect key="frame" x="37" y="472" width="300" height="46"/>
                                 <state key="normal" image="facebookLogin"/>
                                 <connections>
                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TDK-5I-Nsa"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Swipeless" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNh-cj-hq6">
+                                <rect key="frame" x="24" y="318.5" width="327" height="30"/>
+                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="hNh-cj-hq6" firstAttribute="top" secondItem="zsN-Aa-vDR" secondAttribute="bottom" constant="50" id="39s-s6-yKE"/>
                             <constraint firstItem="hNh-cj-hq6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="7Lb-ft-gCO"/>
-                            <constraint firstItem="zsN-Aa-vDR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cr8-VA-Oba"/>
                             <constraint firstItem="zmN-ek-QhI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G7c-sq-fhF"/>
+                            <constraint firstItem="hNh-cj-hq6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="T7m-uP-fkR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hNh-cj-hq6" secondAttribute="trailing" constant="8" id="Wt0-je-t0Y"/>
-                            <constraint firstItem="zsN-Aa-vDR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="112" id="p4z-us-PeS"/>
                             <constraint firstItem="zmN-ek-QhI" firstAttribute="top" secondItem="hNh-cj-hq6" secondAttribute="bottom" constant="123.5" id="t4t-OC-CWH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pov-bw-9jg"/>
+                    <navigationItem key="navigationItem" id="pov-bw-9jg">
+                        <barButtonItem key="leftBarButtonItem" image="sw-settings" id="idi-AV-5lx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="facebookLoginButton" destination="zmN-ek-QhI" id="tw8-Ij-pE9"/>
-                        <outlet property="swipeIessIconImage" destination="zsN-Aa-vDR" id="BQ7-IV-hJH"/>
-                        <segue destination="PYD-96-dFc" kind="show" identifier="LoginToPresentationSegue" id="UZc-OZ-nLG"/>
+                        <segue destination="Ayv-nA-aN7" kind="show" identifier="LoginToSeekingSegue" id="4xT-G2-v1E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="954" y="13"/>
+        </scene>
+        <!--Seeking View Controller-->
+        <scene sceneID="ttC-2N-tj1">
+            <objects>
+                <viewController id="Ayv-nA-aN7" customClass="SWSeekingViewController" customModule="Swipeless" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x5K-GV-BgH"/>
+                        <viewControllerLayoutGuide type="bottom" id="7lR-3s-yzy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RrN-Uf-7tz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWP-jz-7k4">
+                                <rect key="frame" x="70" y="495" width="235" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="235" id="KPV-tT-5Ce"/>
+                                    <constraint firstAttribute="height" constant="47" id="fpX-JC-s1R"/>
+                                </constraints>
+                                <state key="normal" image="button-next-active"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J76-9Y-hpA">
+                                <rect key="frame" x="16" y="236" width="165" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="L08-hW-Lme"/>
+                                    <constraint firstAttribute="height" constant="165" id="VBy-5Z-vuw"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRC-pB-YZd">
+                                <rect key="frame" x="194" y="236" width="165" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="L8y-6u-TT9"/>
+                                    <constraint firstAttribute="width" constant="165" id="xLo-O1-iMD"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am seeking a..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH6-qI-FQ7">
+                                <rect key="frame" x="16" y="146" width="343" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="gL3-Wk-50B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AzoSans-Regular" family="Azo Sans" pointSize="28"/>
+                                <color key="textColor" red="0.29411764705882354" green="0.20784313725490194" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J76-9Y-hpA" firstAttribute="leading" secondItem="RrN-Uf-7tz" secondAttribute="leadingMargin" id="5xb-Qa-8uI"/>
+                            <constraint firstItem="BH6-qI-FQ7" firstAttribute="trailing" secondItem="RrN-Uf-7tz" secondAttribute="trailingMargin" id="K5r-Ym-W0g"/>
+                            <constraint firstItem="J76-9Y-hpA" firstAttribute="top" secondItem="BH6-qI-FQ7" secondAttribute="bottom" constant="56" id="Ker-T9-Xdh"/>
+                            <constraint firstItem="BH6-qI-FQ7" firstAttribute="leading" secondItem="RrN-Uf-7tz" secondAttribute="leadingMargin" id="WuX-gt-m6J"/>
+                            <constraint firstItem="ZRC-pB-YZd" firstAttribute="top" secondItem="BH6-qI-FQ7" secondAttribute="bottom" constant="56" id="d8J-4S-xo1"/>
+                            <constraint firstItem="ZRC-pB-YZd" firstAttribute="leading" secondItem="J76-9Y-hpA" secondAttribute="trailing" constant="13" id="lML-FO-ufI"/>
+                            <constraint firstItem="BH6-qI-FQ7" firstAttribute="top" secondItem="x5K-GV-BgH" secondAttribute="bottom" constant="82" id="mlY-dD-y9c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TWP-jz-7k4" secondAttribute="trailing" constant="54" id="p3e-2N-f3U"/>
+                            <constraint firstItem="7lR-3s-yzy" firstAttribute="top" secondItem="TWP-jz-7k4" secondAttribute="bottom" constant="125" id="uDD-Fy-GyR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="femaleButton" destination="ZRC-pB-YZd" id="vWS-a5-Pd5"/>
+                        <outlet property="maleButton" destination="J76-9Y-hpA" id="Fl3-Q9-bFn"/>
+                        <outlet property="nextButton" destination="TWP-jz-7k4" id="NcG-s0-DIV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UrU-To-cEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1652" y="10.344827586206897"/>
         </scene>
         <!--Presentation View Controller-->
         <scene sceneID="Vr2-F3-Owk">
@@ -86,8 +160,8 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSd-RE-xHb">
-                                <rect key="frame" x="16" y="317.5" width="343" height="32.5"/>
-                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="22"/>
+                                <rect key="frame" x="16" y="321" width="343" height="26"/>
+                                <fontDescription key="fontDescription" name="AzoSans-Regular" family="Azo Sans" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -107,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wp-DV-dAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1702" y="12"/>
+            <point key="canvasLocation" x="2399" y="10"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lD1-AW-V6i">
@@ -117,7 +191,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LKg-v5-UOW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.38431372549999998" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -130,6 +206,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button-next-active" width="235" height="40"/>
         <image name="facebookLogin" width="300" height="46"/>
+        <image name="sw-settings" width="27" height="27"/>
     </resources>
 </document>
