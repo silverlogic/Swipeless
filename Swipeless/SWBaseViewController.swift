@@ -22,11 +22,14 @@ class SWBaseViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.tintColor = .pink
-        let userImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        if let imageString = UserManager.shared.currentUser?.avatar {
-            userImageView.yy_setImage(with: URL(string: imageString), placeholder: UIImage(), options: .setImageWithFadeAnimation, completion: nil)
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: userImageView.image, style: .plain, target: self, action: #selector(segueToMatches))
-        }
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "facebook-profilepic"), for: .normal)
+        button.addTarget(self, action: #selector(segueToMatches), for: .touchUpInside)
+        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.clipsToBounds = true
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = barButton
     }
 }
 

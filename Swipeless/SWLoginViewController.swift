@@ -11,13 +11,15 @@ import FBSDKLoginKit
 
 class SWLoginViewController: SWBaseViewController {
 
-    @IBOutlet weak var swipeIessIconImage: UIImageView!
     @IBOutlet weak var facebookLoginButton: UIButton!
 
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background-new"))
+        self.navigationItem.titleView = UILabel()
+        self.navigationItem.rightBarButtonItem = nil
         self.performSegue(withIdentifier: "LoginToSeekingSegue", sender: self)
     }
 

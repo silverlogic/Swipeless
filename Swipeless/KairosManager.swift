@@ -124,7 +124,7 @@ extension KairosManager {
     
     fileprivate func postSentiments(_ sentiment: [String: Int]) {
         let url = URL(string: "https://swipeless.herokuapp.com/api/v0/rate/")!
-        let params = ["email": UserManager.shared.currentUser?.email as Any, "imageId": Int(arc4random_uniform(5)), "anger": sentiment["anger"]!, "disgust": sentiment["disgust"]!, "fear": sentiment["fear"]!, "joy": sentiment["joy"]!, "sadness": sentiment["sadness"]!, "surprise": sentiment["surprise"]!] as [String : Any]
+        let params = ["email": "btredgeto@adobe.com", "imageId": Int(arc4random_uniform(5)), "anger": sentiment["anger"]!, "disgust": sentiment["disgust"]!, "fear": sentiment["fear"]!, "joy": sentiment["joy"]!, "sadness": sentiment["sadness"]!, "surprise": sentiment["surprise"]!] as [String : Any]
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
             .responseString { response in
                 print(response)

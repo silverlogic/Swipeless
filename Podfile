@@ -13,7 +13,7 @@ target 'Swipeless' do
   pod 'FBSDKLoginKit'
   pod 'SVProgressHUD'
   pod 'FaveButton', '~> 2.0.3'
-  pod 'pop', '~> 1.0'
+  pod "DottedProgressBar"
   pod 'IQKeyboardManager'
   pod 'YYWebImage'
 
