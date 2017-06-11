@@ -36,7 +36,6 @@ extension VideoManager: AVCaptureFileOutputRecordingDelegate {
     
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         print(outputFileURL)
-        SVProgressHUD.show()
         guard let fileMainURL = outputFileURL else { return }
         do {
             let asset = AVURLAsset(url: fileMainURL, options: nil)
@@ -67,7 +66,6 @@ extension VideoManager: AVCaptureFileOutputRecordingDelegate {
             case .completed:
                 DispatchQueue.main.async {
                     do {
-                        SVProgressHUD.dismiss()
                         self.responseVideoData = try NSData(contentsOf: tempFileMainURL, options: NSData.ReadingOptions())
 //                        KairosManager.shared.postToKairos(path: tempFileMainURL)
                         print("MB - \(self.responseVideoData.length) byte")

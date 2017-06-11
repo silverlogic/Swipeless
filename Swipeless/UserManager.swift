@@ -31,7 +31,7 @@ extension UserManager {
     }
 
     func postSeeking(email: String?, seeking: String?, success: @escaping (_ true: Bool) -> Void, failure: @escaping (_ error: Error) -> Void) {
-        let url = "https://wbzrrxjjlo.localtunnel.me/api/v0/seek"
+        let url = "https://swipeless.herokuapp.com/api/v0/seek"
         let params = ["email" : email, "seeking" : seeking]
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in

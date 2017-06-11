@@ -20,7 +20,7 @@ final class LoginManager {
 
 extension LoginManager {
     func loginUser(facebookUserInfo: FacebookUserInfo, success: @escaping (_ userInfo: FacebookUserInfo) -> Void, failure: @escaping (_ error: Error) -> Void) {
-        let url = "http://ztodjpgywe.localtunnel.me/api/v0/register"
+        let url = "https://swipeless.herokuapp.com/api/v0/register"
         let params: [String : Any] = ["email" : facebookUserInfo.email, "facebook" : facebookUserInfo.facebook, "firstName" : facebookUserInfo.firstName, "lastName" : facebookUserInfo.lastName, "gender" : facebookUserInfo.gender, "avatar" : facebookUserInfo.avatar]
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in

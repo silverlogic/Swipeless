@@ -19,7 +19,6 @@ final class SWPresentationViewController: SWBaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        VideoManager.shared.createSession(previewView)
     }
 
 
