@@ -69,6 +69,7 @@ extension VideoManager: AVCaptureFileOutputRecordingDelegate {
                     do {
                         SVProgressHUD.dismiss()
                         self.responseVideoData = try NSData(contentsOf: tempFileMainURL, options: NSData.ReadingOptions())
+//                        KairosManager.shared.postToKairos(path: tempFileMainURL)
                         print("MB - \(self.responseVideoData.length) byte")
                     } catch let error as NSError {
                         print(error)
@@ -98,7 +99,6 @@ extension VideoManager: AVCaptureFileOutputRecordingDelegate {
         let filepath = directoryPath.appending(filename)
         let url = NSURL.fileURL(withPath: filepath)
         KairosManager.shared.postToKairos(path: url)
-        //KairosManager.shared.postToKairos(path: url)
         do {
             try UIImageJPEGRepresentation(chosenImage, 1.0)?.write(to: url, options: .atomic)
             return String.init("/Documents/\(filename)")

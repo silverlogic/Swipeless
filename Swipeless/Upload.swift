@@ -14,7 +14,7 @@ class Upload: Mappable {
     // MARK: - Public Instance Methods
     var uploadID: String!
     var status: String!
-    
+
     required init?(map: Map) {}
     
     func mapping(map: Map) {
