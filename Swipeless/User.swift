@@ -21,6 +21,7 @@ final class User: Mappable {
     var gender: String!
     var userId: String!
     var emotions: [Any]?
+    var goodUsers: [Any]?
     
     required init?(map: Map) {}
     
@@ -33,5 +34,7 @@ final class User: Mappable {
         avatarURL <- map["avatar"]
         gender <- map["gender"]
         emotions <- map["impressions"]
+        goodUsers <- map[""]
     }
 }
+
