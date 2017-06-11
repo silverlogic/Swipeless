@@ -13,7 +13,7 @@ class SWBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let image : UIImage = UIImage(named: "swipeless-logo")!
+        let image : UIImage = UIImage(named: "NavLogo_Title")!
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         imageView.contentMode = .scaleAspectFit
         imageView.image = image

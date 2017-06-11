@@ -12,6 +12,8 @@ final class SWPresentationViewController: SWBaseViewController {
     
     // MARK: - IBOutlets
     @IBOutlet fileprivate weak var previewView: UIView!
+    @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
     
     
     // MARK: - Lifecycle
@@ -19,4 +21,10 @@ final class SWPresentationViewController: SWBaseViewController {
         super.viewDidLoad()
         VideoManager.shared.createSession(previewView)
     }
+
+
+    // MARK: - IBActions
+    @IBAction func startTapped(_ sender: UIButton) {
+    }
+    
 }
