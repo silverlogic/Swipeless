@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import FaveButton
-
+import Foundation
+import pop
 
 final class SWSeekingViewController: SWBaseViewController {
     
@@ -16,10 +16,16 @@ final class SWSeekingViewController: SWBaseViewController {
     @IBOutlet fileprivate weak var maleButton: UIButton!
     @IBOutlet fileprivate weak var femaleButton: UIButton!
     @IBOutlet fileprivate weak var nextButton: UIButton!
-    
+
+
+    // MARK: - Public Instance Methods
+    var seeking: String?
+
+
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        seeking = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +35,66 @@ final class SWSeekingViewController: SWBaseViewController {
             self.femaleButton.setImage(self.selectRandomFemaleImage(), for: .normal)
         }
     }
+
+    @IBAction func maleButtonTapped(_ sender: UIButton) {
+        seeking = "male"
+        maleButton.backgroundColor = .clear
+        maleButton.layer.cornerRadius = femaleButton.layer.frame.size.width / 2
+        maleButton.layer.masksToBounds = true
+        maleButton.layer.borderWidth = 1
+        maleButton.layer.borderColor = UIColor.black.cgColor
+//        if seeking == "male" {
+//            seeking = ""
+//            maleButton.layer.masksToBounds = false
+//            maleButton.layer.borderWidth = 0
+//        } else {
+//            seeking = "male"
+//            maleButton.backgroundColor = .clear
+//            maleButton.layer.cornerRadius = femaleButton.layer.frame.size.width / 2
+//            maleButton.layer.masksToBounds = true
+//            maleButton.layer.borderWidth = 1
+//            maleButton.layer.borderColor = UIColor.black.cgColor
+//        }
+    }
+
+
+    @IBAction func femaleButtonTapped(_ sender: Any) {
+        seeking = "female"
+        femaleButton.backgroundColor = .clear
+        femaleButton.layer.cornerRadius = femaleButton.layer.frame.size.width / 2
+        femaleButton.layer.masksToBounds = true
+        femaleButton.layer.borderWidth = 1
+        femaleButton.layer.borderColor = UIColor.black.cgColor
+
+//        if seeking == "female" {
+//            seeking = ""
+//            femaleButton.layer.masksToBounds = false
+//            femaleButton.layer.borderWidth = 0
+//
+//        } else {
+//            seeking = "female"
+//            femaleButton.backgroundColor = .clear
+//            femaleButton.layer.cornerRadius = femaleButton.layer.frame.size.width / 2
+//            femaleButton.layer.masksToBounds = true
+//            femaleButton.layer.borderWidth = 1
+//            femaleButton.layer.borderColor = UIColor.black.cgColor
+//        }
+    }
+
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        //if let user = UserManager.shared.currentUser {
+            UserManager.shared.postSeeking(email: "michaelsevy@gmail.com", seeking: seeking, success: { [weak self] (success) in
+                guard let strongSelf = self else { return }
+                strongSelf.performSegue(withIdentifier: "SegueToBaseLineDescription", sender: self)
+                }, failure: { (error) in
+                    print(error)
+            })
+//        } else {
+//            print("no user logged in")
+//        }
+    }
+   
+
 }
 
 

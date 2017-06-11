@@ -25,8 +25,8 @@
 		6A37C2541EEC9ECF002868A8 /* SWSeekingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C2531EEC9ECF002868A8 /* SWSeekingViewController.swift */; };
 		6A37C2561EECA9EF002868A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C2551EECA9EF002868A8 /* User.swift */; };
 		6A37C2581EECAA93002868A8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C2571EECAA93002868A8 /* UserManager.swift */; };
-		6A37C25C1EECEEBB002868A8 /* Azo Sans in Resources */ = {isa = PBXBuildFile; fileRef = 6A37C25B1EECEEBB002868A8 /* Azo Sans */; };
 		6A37C25A1EECDD73002868A8 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37C2591EECDD73002868A8 /* Upload.swift */; };
+		6A37C25C1EECEEBB002868A8 /* Azo Sans in Resources */ = {isa = PBXBuildFile; fileRef = 6A37C25B1EECEEBB002868A8 /* Azo Sans */; };
 		8EC9CEB5029207D64998B84C /* Pods_Swipeless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54EA52A9FE6F51D2F672FFED /* Pods_Swipeless.framework */; };
 		C3AFB0C8CDDEAE8B19187E2A /* Pods_SwipelessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AD7BFF3E39E29594DD9D1D /* Pods_SwipelessTests.framework */; };
 /* End PBXBuildFile section */
@@ -67,8 +67,8 @@
 		6A37C2531EEC9ECF002868A8 /* SWSeekingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWSeekingViewController.swift; sourceTree = "<group>"; };
 		6A37C2551EECA9EF002868A8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6A37C2571EECAA93002868A8 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		6A37C25B1EECEEBB002868A8 /* Azo Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Azo Sans"; sourceTree = "<group>"; };
 		6A37C2591EECDD73002868A8 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		6A37C25B1EECEEBB002868A8 /* Azo Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Azo Sans"; sourceTree = "<group>"; };
 		99039488723238468B1BCCF0 /* Pods-Swipeless.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeless.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeless/Pods-Swipeless.debug.xcconfig"; sourceTree = "<group>"; };
 		A34729F1C01802AF035FC58D /* Pods-Swipeless.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeless.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeless/Pods-Swipeless.release.xcconfig"; sourceTree = "<group>"; };
 		E3AD7BFF3E39E29594DD9D1D /* Pods_SwipelessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipelessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -398,7 +398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AC6FC6608E5C068F82378483 /* [CP] Check Pods Manifest.lock */ = {
@@ -413,7 +413,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F0654FFECA6EFC7AEC3A2A6B /* [CP] Embed Pods Frameworks */ = {
