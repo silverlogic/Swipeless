@@ -20,14 +20,14 @@ final class LoginManager {
 
 extension LoginManager {
     func loginUser(facebookUserInfo: FacebookUserInfo, success: @escaping (_ userInfo: FacebookUserInfo) -> Void, failure: @escaping (_ error: Error) -> Void) {
-        let url = "http://iqmvimhmbk.localtunnel.me/api/v0/register"
+        let url = "http://ztodjpgywe.localtunnel.me/api/v0/register"
         let params: [String : Any] = ["email" : facebookUserInfo.email, "facebook" : facebookUserInfo.facebook, "firstName" : facebookUserInfo.firstName, "lastName" : facebookUserInfo.lastName, "gender" : facebookUserInfo.gender, "avatar" : facebookUserInfo.avatar]
         Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
-            if let userResponse = response.result.value {
-                print("**response: \(userResponse)")
-            }
-            success(facebookUserInfo)
+                if let userResponse = response.result.value {
+                    print("**response: \(userResponse)")
+                }
+                success(facebookUserInfo)
             if response.result.isFailure {
                 print(response.result.error as Any)
             }

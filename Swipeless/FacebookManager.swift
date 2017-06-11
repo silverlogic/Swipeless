@@ -11,7 +11,7 @@ import FBSDKLoginKit
 import FBSDKShareKit
 
 /**
- A singleton responsible for facebook operations.
+    A singleton responsible for facebook operations.
  */
 final class FacebookManager {
 
