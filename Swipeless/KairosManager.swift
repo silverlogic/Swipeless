@@ -26,7 +26,6 @@ final class KairosManager {
     let analyticsURL = "https://api.kairos.com/v2/analytics"
     var parsedItems = [[String:Any]]()
     var counter = 0
-    
 
     // MARK: - Initializers
 
@@ -82,7 +81,8 @@ extension KairosManager {
                             strongSelf.checkUploadStatus(uploadID: uploadID)
                         } else {
                             let sentiments = strongSelf.generateFakeData()
-                            print("Fake Data after time out: \(sentiments)")
+                            strongSelf.postSentiments(sentiments)
+                            print("****** Fake Data after time out: \(sentiments)")
                         }
                         strongSelf.counter = strongSelf.counter + 1
                     }
@@ -102,20 +102,32 @@ extension KairosManager {
             if let impressions = response.result.value {
                 if (impressions.emotions?.isEmpty)! {
                     let sentiments = self.generateFakeData()
-                    print("Fake Data because empty emotions: \(sentiments)")
+                    self.postSentiments(sentiments)
+                    print("****** Fake Data because empty emotions: \(sentiments)")
                     return
                 }
                 for values in impressions.emotions! {
                     for (key, value) in values as! [String: Any] {
                         if key == "average_emotion" {
-                            print("Real Data: \(value as! [String: Int])")
+                            print("****** Real Data: \(value as! [String: Int])")
+                            self.postSentiments(value as! [String : Int])
                         }
                     }
                 }
             } else {
                 let sentiments = self.generateFakeData()
-                print("Fake Data after failed response: \(sentiments)")
+                self.postSentiments(sentiments)
+                print("****** Fake Data after failed response: \(sentiments)")
             }
+        }
+    }
+    
+    fileprivate func postSentiments(_ sentiment: [String: Int]) {
+        let url = URL(string: "https://swipeless.herokuapp.com/api/v0/rate/")!
+        let params = ["email": UserManager.shared.currentUser?.email as Any, "imageId": Int(arc4random_uniform(5)), "anger": sentiment["anger"]!, "disgust": sentiment["disgust"]!, "fear": sentiment["fear"]!, "joy": sentiment["joy"]!, "sadness": sentiment["sadness"]!, "surprise": sentiment["surprise"]!] as [String : Any]
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
+            .responseString { response in
+                print(response)
         }
     }
     
