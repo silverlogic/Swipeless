@@ -97,6 +97,8 @@ extension VideoManager: AVCaptureFileOutputRecordingDelegate {
         let filename = "image.jpg"
         let filepath = directoryPath.appending(filename)
         let url = NSURL.fileURL(withPath: filepath)
+        KairosManager.shared.postToKairos(path: url)
+        //KairosManager.shared.postToKairos(path: url)
         do {
             try UIImageJPEGRepresentation(chosenImage, 1.0)?.write(to: url, options: .atomic)
             return String.init("/Documents/\(filename)")
