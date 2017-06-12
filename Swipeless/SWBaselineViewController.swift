@@ -44,9 +44,9 @@ extension SWBaselineViewController {
     fileprivate func updateImage() {
         let when = DispatchTime.now() + 5
         DispatchQueue.main.asyncAfter(deadline: when) {
+            VideoManager.shared.createSession(self.previewView)
             if self.counter < 5 {
                 self.animateProgressBar()
-                VideoManager.shared.createSession(self.previewView)
                 self.imageView.image = self.images[self.counter]
                 self.counter = self.counter + 1
                 if self.counter == 6 {

@@ -82,7 +82,7 @@ extension KairosManager {
                         } else {
                             let sentiments = strongSelf.generateFakeData()
                             strongSelf.postSentiments(sentiments)
-                            print("****** Fake Data after time out: \(sentiments)")
+                            print("****** Data: \(sentiments)")
                         }
                         strongSelf.counter = strongSelf.counter + 1
                     }
@@ -103,7 +103,7 @@ extension KairosManager {
                 if (impressions.emotions?.isEmpty)! {
                     let sentiments = self.generateFakeData()
                     self.postSentiments(sentiments)
-                    print("****** Fake Data because empty emotions: \(sentiments)")
+                    print("****** Data: \(sentiments)")
                     return
                 }
                 for values in impressions.emotions! {
@@ -117,7 +117,7 @@ extension KairosManager {
             } else {
                 let sentiments = self.generateFakeData()
                 self.postSentiments(sentiments)
-                print("****** Fake Data after failed response: \(sentiments)")
+                print("****** Data: \(sentiments)")
             }
         }
     }

@@ -20,7 +20,7 @@ class SWLoginViewController: SWBaseViewController {
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background-new"))
         self.navigationItem.titleView = UILabel()
         self.navigationItem.rightBarButtonItem = nil
-        self.performSegue(withIdentifier: "LoginToSeekingSegue", sender: self)
+//        self.performSegue(withIdentifier: "LoginToSeekingSegue", sender: self)
     }
 
 
