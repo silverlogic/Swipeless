@@ -12,7 +12,7 @@ class NewMatchCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageForMatch: UIImageView!
 
-    func configure(image: UIImage) {
-        imageForMatch.image = image
+    func configure(url: URL) {
+        imageForMatch.yy_setImage(with: url, placeholder: UIImage(), options: .setImageWithFadeAnimation, completion: nil)
     }
 }
